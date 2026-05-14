@@ -12,12 +12,16 @@
 #   - 報表股票池與 main.py 監控股票池分開
 #   - HTML 會直接發 TG
 #   - 報表版大量K搜尋「包含最後一根」，避免收盤後空白
+#   - 自動複製最新報表為 index.html（GitHub Pages 首頁）
+#   - 自動執行 Git 操作（有變更時）
 # ============================================================
 
 from __future__ import annotations
 
 import os
 import requests
+import subprocess
+import shutil
 from datetime import datetime, timedelta
 from typing import Optional, Tuple
 
@@ -442,6 +446,80 @@ def _分析單檔(api, symbol: str) -> Optional[dict]:
 # Telegram HTML
 # ==========================================================
 
+def _自動提交報表(root_index_path: str, html_path: str) -> None:
+    """
+    自動執行 Git 操作：
+    - 檢查是否有變更
+    - 有變更時執行 git add, commit, push
+    """
+    try:
+        # 檢查是否在 Git 倉庫內
+        result = subprocess.run(
+            ["git", "rev-parse", "--git-dir"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        if result.returncode != 0:
+            print("  ⚠️ 非 Git 倉庫，略過自動提交")
+            return
+
+        # 檢查 git status（是否有變更）
+        status_result = subprocess.run(
+            ["git", "status", "--porcelain"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+
+        changes = status_result.stdout.strip()
+        
+        # 如果沒有變更就返回
+        if not changes:
+            print("  ✅ 無變更，略過 Git 操作")
+            return
+
+        print("  🔄 檢測到變更，執行 Git 操作...")
+
+        # git add .
+        subprocess.run(
+            ["git", "add", "."],
+            timeout=10,
+            check=True,
+        )
+        print("    git add . ✅")
+
+        # git commit
+        subprocess.run(
+            ["git", "commit", "-m", "auto update report"],
+            timeout=10,
+            check=True,
+        )
+        print("    git commit ✅")
+
+        # git push
+        subprocess.run(
+            ["git", "push"],
+            timeout=30,
+            check=True,
+        )
+        print("    git push ✅")
+
+        print("  📤 Git 操作完成")
+
+    except subprocess.TimeoutExpired:
+        print("  ⚠️ Git 操作超時")
+    except subprocess.CalledProcessError as e:
+        print(f"  ⚠️ Git 操作失敗：{e}")
+    except Exception as e:
+        print(f"  ⚠️ Git 操作例外：{e}")
+
+
+# ==========================================================
+# Telegram HTML
+# ==========================================================
+
+
 def _發送HTML到TG(path: str) -> None:
     if not 報表設定.發送HTML到TG:
         return
@@ -524,7 +602,22 @@ def 產生報表(api=None) -> pd.DataFrame:
 
     _發送HTML到TG(html_path)
 
+    # =====================================================
+    # 複製最新報表到根目錄 index.html
+    # =====================================================
+    root_index_path = "index.html"
+    try:
+        shutil.copy2(html_path, root_index_path)
+        print(f"  根目錄 index.html：已更新")
+    except Exception as e:
+        print(f"  ⚠️ 複製 index.html 失敗：{e}")
+
     print("📊 報表完成")
+
+    # =====================================================
+    # 自動執行 Git 操作
+    # =====================================================
+    _自動提交報表(root_index_path, html_path)
 
     if should_logout:
         api.logout()
