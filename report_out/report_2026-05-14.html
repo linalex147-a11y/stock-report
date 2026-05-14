@@ -17,7 +17,7 @@
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0;
+    margin: 0 0 14px;
     font-family: Arial, "Microsoft JhengHei", sans-serif;
     background: var(--bg);
     color: var(--ink);
@@ -27,8 +27,15 @@
     margin: 0 auto;
     padding: 20px;
   }
+  .page-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
   h2 {
-    margin: 0 0 14px;
+    margin: 0;
     color: #1d2733;
     font-size: 24px;
     line-height: 1.2;
@@ -76,9 +83,17 @@
   }
   td:first-child { background: var(--panel); font-weight: 700; }
   th:first-child { z-index: 3; }
-  .ts { color: var(--muted); font-size: 12px; margin: 10px 0 0; }
+  .ts {
+    color: var(--muted);
+    font-size: 12px;
+    margin: 10px 0 0;
+  }
   @media (max-width: 720px) {
     main { padding: 12px; }
+    .page-head {
+      display: block;
+      margin-bottom: 10px;
+    }
     h2 { font-size: 20px; }
     .table-wrap {
       border-radius: 6px;
@@ -122,7 +137,7 @@
 </tbody>
 </table>
 </div>
-<p class="ts">產生時間：2026-05-14 13:41</p>
+<p class="ts">產生時間：2026-05-14 18:22</p>
 </main>
 </body>
 </html>
