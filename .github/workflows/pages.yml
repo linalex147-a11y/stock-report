@@ -1,0 +1,57 @@
+name: Deploy report to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare latest report as index.html
+        shell: pwsh
+        run: |
+          if (!(Test-Path report_out)) {
+            throw "report_out folder was not found."
+          }
+
+          $latest = Get-ChildItem report_out -Filter "report_*.html" |
+            Sort-Object LastWriteTime -Descending |
+            Select-Object -First 1
+
+          if ($null -eq $latest) {
+            throw "No report_*.html file was found in report_out."
+          }
+
+          Copy-Item $latest.FullName report_out/index.html -Force
+          Write-Host "Deploying $($latest.Name) as index.html"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: report_out
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
