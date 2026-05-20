@@ -1,119 +1,77 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI盤後結構報表</title>
-
 <style>
-
 body {
-    font-family: Arial;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
     background:#f5f5f5;
     margin:0;
     padding:20px;
 }
-
 .container {
     max-width:1600px;
     margin:auto;
 }
-
 h1 {
     margin-bottom:20px;
 }
-
 .toolbar {
     margin-bottom:15px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
 }
-
 .btn {
     padding:8px 14px;
-    margin-right:8px;
-    margin-bottom:8px;
     border:none;
     border-radius:20px;
     cursor:pointer;
+    background:#e5e7eb;
 }
-
 .active {
     background:#2563eb;
     color:white;
 }
-
 table {
     width:100%;
     border-collapse:collapse;
     background:white;
 }
-
 th {
     background:#1f2937;
     color:white;
     padding:12px;
 }
-
 td {
     padding:12px;
     border-bottom:1px solid #ddd;
 }
-
 tr:hover {
     background:#f9fafb;
 }
-
 </style>
-
 </head>
-
 <body>
-
 <div class="container">
-
-<h1>
-📊 AI盤後結構報表
-</h1>
-
+<h1>📊 AI盤後結構報表</h1>
 <div class="toolbar">
-
-
 <button class="btn active" data-cat="全部">全部</button>
-
-<button class="btn" data-cat="AI伺服器">
-AI伺服器
-</button>
-
-<button class="btn" data-cat="PCB">
-PCB
-</button>
-
-<button class="btn" data-cat="記憶體">
-記憶體
-</button>
-
-<button class="btn" data-cat="機器人">
-機器人
-</button>
-
-<button class="btn" data-cat="玻纖布">
-玻纖布
-</button>
-
+<button class="btn" data-cat="自選">自選</button>
+<button class="btn" data-cat="AI伺服器">AI伺服器</button>
+<button class="btn" data-cat="ASIC">ASIC</button>
+<button class="btn" data-cat="PCB">PCB</button>
+<button class="btn" data-cat="記憶體">記憶體</button>
+<button class="btn" data-cat="光通訊">光通訊</button>
+<button class="btn" data-cat="機器人">機器人</button>
+<button class="btn" data-cat="玻纖布">玻纖布</button>
 
 </div>
-
 <table>
-
 <thead>
-
 <tr>
-
 <th>股票</th>
 <th>現價</th>
 <th>交易狀態</th>
@@ -123,480 +81,356 @@ PCB
 <th>壓力</th>
 <th>支撐</th>
 <th>AI交易劇本</th>
-
 </tr>
-
 </thead>
-
 <tbody>
 
-
-<tr data-cats="PCB">
-<td>2367 燿華</td>
-<td>63.3</td>
-<td>⚠️ 多方回檔｜看支撐</td>
-<td>多</td>
-<td>空</td>
-<td>量增</td>
-<td>64.7 / 67.5</td>
-<td>63.29 / 62.6</td>
-<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
-</tr>
-
-<tr data-cats="其他">
-<td>4979 華星光</td>
-<td>523.0</td>
+<tr data-cats="自選,機器人">
+<td>5443 均豪</td>
+<td>121.0</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
 <td>量增</td>
-<td>533 / 589.29</td>
-<td>523 / 502</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>125.5 / 128.5</td>
+<td>118.5</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
 
-<tr data-cats="其他">
-<td>6919 康霈</td>
-<td>104.0</td>
+<tr data-cats="自選">
+<td>2492 華新科</td>
+<td>232.0</td>
 <td>⭕ 偏多｜可觀察</td>
 <td>多</td>
 <td>多</td>
 <td>量增</td>
 <td>-</td>
-<td>104 / 98.83</td>
+<td>215 / 206</td>
 <td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
 </tr>
 
-<tr data-cats="AI伺服器">
+<tr data-cats="自選">
 <td>8054 安國</td>
 <td>105.5</td>
-<td>⭕ 偏多｜可觀察</td>
-<td>多</td>
-<td>多</td>
-<td>量增</td>
-<td>106.5 / 111</td>
-<td>105 / 102.43</td>
-<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器,機器人">
-<td>5443 均豪</td>
-<td>119.5</td>
-<td>⚠️ 偏空｜不追空</td>
+<td>👀 空方反彈｜等壓力空</td>
 <td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>122.5 / 126.14</td>
-<td>118.5</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="其他">
-<td>2492 華新科</td>
-<td>220.0</td>
-<td>⭕ 偏多｜可觀察</td>
-<td>多</td>
 <td>多</td>
 <td>量增</td>
-<td>222 / 222.5</td>
-<td>219 / 204.5</td>
-<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+<td>110 / 111</td>
+<td>105 / 99.2</td>
+<td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
 </tr>
 
-<tr data-cats="記憶體">
+<tr data-cats="自選,記憶體">
 <td>2337 旺宏</td>
-<td>144.0</td>
+<td>142.0</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
-<td>量縮</td>
-<td>147 / 159.43</td>
-<td>144</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>2421 建準</td>
-<td>145.0</td>
-<td>👀 空方反彈｜等壓力空</td>
-<td>空</td>
-<td>多</td>
 <td>量增</td>
-<td>145.36 / 146</td>
-<td>143.5 / 135</td>
-<td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
+<td>153 / 163</td>
+<td>141.5</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
 
-<tr data-cats="其他">
-<td>3481 群創</td>
-<td>37.45</td>
-<td>⚠️ 多方回檔｜看支撐</td>
-<td>多</td>
-<td>空</td>
-<td>量增</td>
-<td>38.35 / 39.4</td>
-<td>37.2 / 36.14</td>
-<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
-</tr>
-
-<tr data-cats="其他">
-<td>1727 中華化</td>
-<td>87.5</td>
+<tr data-cats="自選,PCB">
+<td>2367 燿華</td>
+<td>65.6</td>
 <td>⭕ 偏多｜可觀察</td>
 <td>多</td>
 <td>多</td>
 <td>量增</td>
-<td>88.2 / 92.7</td>
-<td>85.6 / 82.43</td>
-<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+<td>67.2 / 67.5</td>
+<td>62.6 / 61.7</td>
+<td>日30同步偏多，若能放量突破壓力，多方可再延伸。</td>
 </tr>
 
-<tr data-cats="其他">
-<td>3305 昇茂</td>
-<td>138.0</td>
+<tr data-cats="自選">
+<td>6919 康霈</td>
+<td>106.5</td>
 <td>⭕ 偏多｜可觀察</td>
 <td>多</td>
 <td>多</td>
 <td>量增</td>
-<td>141 / 150</td>
-<td>135.5 / 130.79</td>
-<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+<td>109 / 112.5</td>
+<td>104 / 101.88</td>
+<td>日30同步偏多，若能放量突破壓力，多方可再延伸。</td>
 </tr>
 
-<tr data-cats="其他">
-<td>2481 強茂</td>
-<td>135.0</td>
-<td>⭕ 偏多｜可觀察</td>
-<td>多</td>
-<td>多</td>
-<td>量增</td>
-<td>137.5 / 140.5</td>
-<td>133.5 / 120.36</td>
-<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
-</tr>
-
-<tr data-cats="記憶體">
-<td>2344 華邦電</td>
-<td>117.5</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量縮</td>
-<td>119 / 124.64</td>
-<td>117.5</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="記憶體">
-<td>5351 鈺創</td>
-<td>76.8</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量縮</td>
-<td>77 / 84.57</td>
-<td>76.8</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="其他">
-<td>8121 越峰</td>
-<td>32.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>32.45 / 33.84</td>
-<td>32</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="PCB,玻纖布">
-<td>8039 台虹</td>
-<td>133.5</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>134.5 / 139.93</td>
-<td>130.5</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="機器人">
-<td>4571 鈞興_KY</td>
-<td>227.5</td>
-<td>⚠️ 多方回檔｜看支撐</td>
-<td>多</td>
-<td>空</td>
-<td>量增</td>
-<td>229.5 / 241.5</td>
-<td>215.5 / 208.21</td>
-<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
-</tr>
-
-<tr data-cats="其他">
-<td>3131 弘塑</td>
-<td>2580.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>2600 / 2916.43</td>
-<td>2565</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>6462 神盾</td>
-<td>131.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>132.14 / 136.5</td>
-<td>130.5 / 128.5</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器,機器人">
+<tr data-cats="自選,機器人">
 <td>2359 所羅門</td>
-<td>135.0</td>
+<td>132.5</td>
 <td>⚠️ 多方回檔｜看支撐</td>
 <td>多</td>
 <td>空</td>
 <td>量增</td>
-<td>139.5 / 145</td>
-<td>132.5 / 129.64</td>
+<td>140.5 / 145</td>
+<td>131.5 / 130</td>
 <td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
 </tr>
 
-<tr data-cats="其他">
-<td>3708 上緯投控</td>
-<td>115.5</td>
+<tr data-cats="自選">
+<td>1513 中興電</td>
+<td>149.5</td>
 <td>👀 空方反彈｜等壓力空</td>
 <td>空</td>
 <td>多</td>
-<td>量增</td>
-<td>116.5 / 117.57</td>
-<td>114 / 111.5</td>
+<td>量縮</td>
+<td>152 / 154.93</td>
+<td>148.5 / 146.5</td>
 <td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
 </tr>
 
-<tr data-cats="AI伺服器">
-<td>3264 欣銓</td>
-<td>214.5</td>
+<tr data-cats="自選,光通訊">
+<td>4979 華星光</td>
+<td>523.0</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
-<td>量增</td>
-<td>215 / 226.21</td>
-<td>210</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>量縮</td>
+<td>550 / 551</td>
+<td>523 / 502</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
+</tr>
+
+<tr data-cats="自選">
+<td>3264 欣銓</td>
+<td>206.5</td>
+<td>⚠️ 偏空｜不追空</td>
+<td>空</td>
+<td>空</td>
+<td>量縮</td>
+<td>223 / 230</td>
+<td>204</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
 
 <tr data-cats="AI伺服器">
 <td>3017 奇鋐</td>
-<td>2390.0</td>
+<td>2395.0</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
 <td>量增</td>
-<td>2445 / 2495.71</td>
-<td>2390 / 2300</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>2470</td>
+<td>2375 / 2300</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
 
 <tr data-cats="AI伺服器">
 <td>3324 雙鴻</td>
-<td>966.0</td>
+<td>962.0</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
 <td>量增</td>
-<td>979 / 1021.86</td>
-<td>966 / 941</td>
+<td>984 / 994</td>
+<td>952 / 941</td>
 <td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
 </tr>
 
 <tr data-cats="AI伺服器">
 <td>2382 廣達</td>
-<td>290.0</td>
+<td>294.0</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
 <td>量增</td>
-<td>295.5 / 317</td>
-<td>290</td>
+<td>301 / 305</td>
+<td>288.5</td>
 <td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
 </tr>
 
 <tr data-cats="AI伺服器">
 <td>3231 緯創</td>
-<td>132.5</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>135 / 137.5</td>
-<td>132.5 / 132</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>2376 技嘉</td>
-<td>305.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>312 / 321.14</td>
-<td>304.5</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>2356 英業達</td>
-<td>51.7</td>
-<td>⚠️ 多方回檔｜看支撐</td>
-<td>多</td>
-<td>空</td>
-<td>量增</td>
-<td>53.1 / 55.3</td>
-<td>51.53 / 51.5</td>
-<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>2301 光寶科</td>
-<td>206.5</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>208 / 213.64</td>
-<td>204.5 / 196</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>3035 智原</td>
-<td>188.5</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>191 / 195.43</td>
-<td>186 / 177</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>3661 世芯_KY</td>
-<td>4430.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>4500 / 4845.71</td>
-<td>4430 / 4340</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>3443 創意</td>
-<td>4465.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>4475 / 5107.86</td>
-<td>4370</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>2454 聯發科</td>
-<td>3155.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>3205 / 3470.71</td>
-<td>3100</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="AI伺服器">
-<td>4908 前鼎</td>
-<td>231.5</td>
+<td>135.0</td>
 <td>👀 空方反彈｜等壓力空</td>
 <td>空</td>
 <td>多</td>
 <td>量增</td>
-<td>235.43 / 249</td>
-<td>220</td>
+<td>136 / 136.5</td>
+<td>132.5 / 132</td>
 <td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
 </tr>
 
 <tr data-cats="AI伺服器">
-<td>3081 聯亞</td>
-<td>2490.0</td>
-<td>⚠️ 偏空｜不追空</td>
+<td>2376 技嘉</td>
+<td>312.5</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
 <td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>2570 / 2781.43</td>
-<td>2480</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>量縮</td>
+<td>324 / 351</td>
+<td>304.5 / 299.8</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
 </tr>
 
 <tr data-cats="AI伺服器">
-<td>3363 上詮</td>
-<td>775.0</td>
+<td>2356 英業達</td>
+<td>52.1</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
+<td>多</td>
+<td>量縮</td>
+<td>53.3</td>
+<td>51.4 / 50.1</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+</tr>
+
+<tr data-cats="AI伺服器">
+<td>2301 光寶科</td>
+<td>209.0</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
+<td>多</td>
+<td>量增</td>
+<td>211.5 / 213</td>
+<td>203 / 196</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+</tr>
+
+<tr data-cats="AI伺服器">
+<td>2421 建準</td>
+<td>146.5</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
+<td>多</td>
+<td>量增</td>
+<td>148</td>
+<td>146.05 / 141</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+</tr>
+
+<tr data-cats="AI伺服器">
+<td>6669 緯穎</td>
+<td>4925.0</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
 <td>量增</td>
-<td>777 / 849.71</td>
-<td>763</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>5010 / 5110</td>
+<td>4850</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
 
-<tr data-cats="PCB">
-<td>8046 南電</td>
-<td>798.0</td>
+<tr data-cats="AI伺服器">
+<td>3706 神達</td>
+<td>80.5</td>
 <td>👀 空方反彈｜等壓力空</td>
 <td>空</td>
 <td>多</td>
 <td>量增</td>
-<td>816 / 844.29</td>
+<td>81 / 81.29</td>
+<td>79.9 / 77.8</td>
+<td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
+</tr>
+
+<tr data-cats="ASIC">
+<td>3035 智原</td>
+<td>189.5</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
+<td>空</td>
+<td>量縮</td>
+<td>197</td>
+<td>186 / 183.8</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
+</tr>
+
+<tr data-cats="ASIC">
+<td>3661 世芯-KY</td>
+<td>4510.0</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
+<td>多</td>
+<td>量增</td>
+<td>4585 / 4615</td>
+<td>4482 / 4430</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+</tr>
+
+<tr data-cats="ASIC">
+<td>3443 創意</td>
+<td>4520.0</td>
+<td>⚠️ 偏空｜不追空</td>
+<td>空</td>
+<td>空</td>
+<td>量增</td>
+<td>4640 / 4760</td>
+<td>4370</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
+</tr>
+
+<tr data-cats="ASIC">
+<td>2454 聯發科</td>
+<td>3245.0</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
+<td>空</td>
+<td>量增</td>
+<td>3420 / 3550</td>
+<td>3100 / 3061.25</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
+</tr>
+
+<tr data-cats="ASIC">
+<td>6526 達發</td>
+<td>657.0</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
+<td>空</td>
+<td>量縮</td>
+<td>667 / 697</td>
+<td>645.2 / 642</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
+</tr>
+
+<tr data-cats="ASIC">
+<td>2363 矽統</td>
+<td>61.4</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
+<td>多</td>
+<td>量增</td>
+<td>64.7</td>
+<td>60.5 / 57.69</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+</tr>
+
+<tr data-cats="PCB">
+<td>8046 南電</td>
+<td>814.0</td>
+<td>👀 空方反彈｜等壓力空</td>
+<td>空</td>
+<td>多</td>
+<td>量增</td>
+<td>825 / 830</td>
 <td>791 / 765</td>
 <td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
 </tr>
 
 <tr data-cats="PCB">
 <td>3189 景碩</td>
-<td>513.0</td>
+<td>506.0</td>
 <td>⭕ 偏多｜可觀察</td>
 <td>多</td>
 <td>多</td>
 <td>量增</td>
-<td>530 / 537</td>
-<td>505 / 502.93</td>
+<td>530</td>
+<td>503.65 / 499</td>
 <td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
 </tr>
 
 <tr data-cats="PCB">
 <td>3037 欣興</td>
-<td>818.0</td>
-<td>👀 空方反彈｜等壓力空</td>
+<td>816.0</td>
+<td>⚠️ 偏空｜不追空</td>
 <td>空</td>
-<td>多</td>
+<td>空</td>
 <td>量增</td>
-<td>837 / 852</td>
-<td>816 / 776</td>
-<td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
+<td>857 / 860</td>
+<td>806 / 776</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
 
 <tr data-cats="PCB">
@@ -605,238 +439,312 @@ PCB
 <td>👀 空方反彈｜等壓力空</td>
 <td>空</td>
 <td>多</td>
-<td>量增</td>
-<td>1305 / 1342.14</td>
+<td>量縮</td>
+<td>1325</td>
 <td>1275 / 1215</td>
 <td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
 </tr>
 
 <tr data-cats="PCB,玻纖布">
 <td>6274 台燿</td>
-<td>1225.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>1260 / 1370.71</td>
-<td>1210 / 1200</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>1260.0</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
+<td>多</td>
+<td>量縮</td>
+<td>1305</td>
+<td>1211.2 / 1210</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
 </tr>
 
 <tr data-cats="PCB">
 <td>5469 瀚宇博</td>
-<td>79.4</td>
+<td>79.7</td>
 <td>👀 空方反彈｜等壓力空</td>
 <td>空</td>
 <td>多</td>
-<td>量增</td>
-<td>79.7 / 81.13</td>
+<td>量縮</td>
+<td>80.9 / 86.89</td>
 <td>78.7 / 76.8</td>
 <td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
 </tr>
 
 <tr data-cats="PCB">
-<td>4958 臻鼎_KY</td>
-<td>408.5</td>
-<td>👀 空方反彈｜等壓力空</td>
-<td>空</td>
+<td>4958 臻鼎-KY</td>
+<td>417.0</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
 <td>多</td>
 <td>量增</td>
-<td>413.71 / 415</td>
-<td>400.5 / 372</td>
-<td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
+<td>418</td>
+<td>398 / 397.8</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
 </tr>
 
-<tr data-cats="記憶體">
-<td>8299 群聯</td>
-<td>2465.0</td>
+<tr data-cats="PCB,玻纖布">
+<td>8039 台虹</td>
+<td>133.5</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
-<td>量增</td>
-<td>2677.86 / 2850</td>
-<td>2465</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>量縮</td>
+<td>140.5 / 144.5</td>
+<td>130.5</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
 
 <tr data-cats="記憶體">
-<td>4967 十銓</td>
-<td>257.5</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>265 / 278.93</td>
-<td>257.5</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="記憶體">
-<td>3260 威剛</td>
-<td>390.0</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>400 / 430.93</td>
-<td>389</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="記憶體">
-<td>2451 創見</td>
-<td>306.5</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>310 / 333.86</td>
-<td>305</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="機器人">
-<td>2049 上銀</td>
-<td>376.0</td>
+<td>2344 華邦電</td>
+<td>117.0</td>
 <td>⚠️ 多方回檔｜看支撐</td>
 <td>多</td>
 <td>空</td>
 <td>量增</td>
-<td>379.5 / 399</td>
-<td>372.07 / 371</td>
+<td>123.5 / 134</td>
+<td>115 / 107.58</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
+</tr>
+
+<tr data-cats="記憶體">
+<td>2408 南亞科</td>
+<td>276.5</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
+<td>空</td>
+<td>量增</td>
+<td>289 / 309</td>
+<td>273 / 266.77</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
+</tr>
+
+<tr data-cats="記憶體">
+<td>5351 鈺創</td>
+<td>75.5</td>
+<td>⚠️ 偏空｜不追空</td>
+<td>空</td>
+<td>空</td>
+<td>量增</td>
+<td>79.9 / 87.2</td>
+<td>74.4</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
+</tr>
+
+<tr data-cats="ASIC,記憶體">
+<td>8299 群聯</td>
+<td>2445.0</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
+<td>空</td>
+<td>量增</td>
+<td>2535 / 2755</td>
+<td>2410 / 2269.75</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
+</tr>
+
+<tr data-cats="記憶體">
+<td>4967 十銓</td>
+<td>259.5</td>
+<td>⚠️ 偏空｜不追空</td>
+<td>空</td>
+<td>空</td>
+<td>量增</td>
+<td>272.5 / 280</td>
+<td>257</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
+</tr>
+
+<tr data-cats="記憶體">
+<td>3260 威剛</td>
+<td>393.0</td>
+<td>⚠️ 偏空｜不追空</td>
+<td>空</td>
+<td>空</td>
+<td>量增</td>
+<td>410 / 420</td>
+<td>389</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
+</tr>
+
+<tr data-cats="記憶體">
+<td>2451 創見</td>
+<td>312.0</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
+<td>空</td>
+<td>量增</td>
+<td>316 / 331.5</td>
+<td>305 / 296.6</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
+</tr>
+
+<tr data-cats="光通訊">
+<td>4908 前鼎</td>
+<td>235.0</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
+<td>多</td>
+<td>量縮</td>
+<td>238</td>
+<td>220 / 219.15</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+</tr>
+
+<tr data-cats="光通訊">
+<td>3081 聯亞</td>
+<td>2575.0</td>
+<td>⚠️ 偏空｜不追空</td>
+<td>空</td>
+<td>空</td>
+<td>量增</td>
+<td>2705 / 2710</td>
+<td>2460</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
+</tr>
+
+<tr data-cats="光通訊">
+<td>3363 上詮</td>
+<td>784.0</td>
+<td>⚠️ 偏空｜不追空</td>
+<td>空</td>
+<td>空</td>
+<td>量增</td>
+<td>822</td>
+<td>763</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
+</tr>
+
+<tr data-cats="光通訊">
+<td>3450 聯鈞</td>
+<td>407.5</td>
+<td>⭕ 偏多｜可觀察</td>
+<td>多</td>
+<td>多</td>
+<td>量縮</td>
+<td>414.5 / 415</td>
+<td>391 / 380.5</td>
+<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
+</tr>
+
+<tr data-cats="光通訊">
+<td>3163 波若威</td>
+<td>904.0</td>
+<td>👀 空方反彈｜等壓力空</td>
+<td>空</td>
+<td>多</td>
+<td>量縮</td>
+<td>930 / 931</td>
+<td>899 / 865</td>
+<td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
+</tr>
+
+<tr data-cats="機器人">
+<td>2049 上銀</td>
+<td>372.0</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
+<td>空</td>
+<td>量縮</td>
+<td>382.5 / 392.5</td>
+<td>367 / 334.7</td>
 <td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
 </tr>
 
 <tr data-cats="機器人">
 <td>1536 和大</td>
-<td>50.0</td>
+<td>49.5</td>
 <td>👀 空方反彈｜等壓力空</td>
 <td>空</td>
 <td>多</td>
 <td>量增</td>
-<td>50.4 / 51.55</td>
-<td>49 / 47.9</td>
+<td>50.4 / 51</td>
+<td>48.95 / 47.9</td>
 <td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
 </tr>
 
 <tr data-cats="機器人">
 <td>1597 直得</td>
-<td>179.5</td>
-<td>⚠️ 偏空｜不追空</td>
+<td>179.0</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
 <td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>183.79 / 192</td>
-<td>172</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>量縮</td>
+<td>199</td>
+<td>172 / 158.25</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
 </tr>
 
 <tr data-cats="機器人">
 <td>4562 穎漢</td>
-<td>41.8</td>
+<td>41.4</td>
 <td>⚠️ 多方回檔｜看支撐</td>
 <td>多</td>
 <td>空</td>
-<td>量增</td>
-<td>43.2 / 44.15</td>
-<td>41.5 / 38.49</td>
+<td>量縮</td>
+<td>43.5 / 44.15</td>
+<td>40.5 / 39.5</td>
+<td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
+</tr>
+
+<tr data-cats="機器人">
+<td>4571 鈞興-KY</td>
+<td>224.0</td>
+<td>⚠️ 多方回檔｜看支撐</td>
+<td>多</td>
+<td>空</td>
+<td>量縮</td>
+<td>230.5 / 241.5</td>
+<td>215.5 / 205</td>
 <td>日多30空，屬多方回檔，先看支撐能不能守住。</td>
 </tr>
 
 <tr data-cats="玻纖布">
 <td>2383 台光電</td>
-<td>4535.0</td>
-<td>👀 空方反彈｜等壓力空</td>
+<td>4470.0</td>
+<td>⚠️ 偏空｜不追空</td>
 <td>空</td>
-<td>多</td>
+<td>空</td>
 <td>量增</td>
-<td>4600 / 4756.43</td>
-<td>4490 / 4300</td>
-<td>日空30多，屬空方反彈，先看壓力是否過得去。</td>
+<td>4655 / 4675</td>
+<td>4430 / 4300</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
 
 <tr data-cats="玻纖布">
 <td>6213 聯茂</td>
-<td>240.5</td>
+<td>238.5</td>
 <td>⚠️ 偏空｜不追空</td>
 <td>空</td>
 <td>空</td>
 <td>量增</td>
-<td>245 / 266.57</td>
-<td>238.5 / 238</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
+<td>252.5</td>
+<td>235</td>
+<td>日30同步偏空，壓力沉重，先以反彈壓回看待。</td>
 </tr>
-
-<tr data-cats="玻纖布">
-<td>3049 和鑫</td>
-<td>11.9</td>
-<td>⚠️ 偏空｜不追空</td>
-<td>空</td>
-<td>空</td>
-<td>量增</td>
-<td>12.1 / 12.59</td>
-<td>11.85 / 11.8</td>
-<td>日30同步偏空，反彈不過月線，空方仍有優勢。</td>
-</tr>
-
-<tr data-cats="玻纖布">
-<td>6176 瑞儀</td>
-<td>102.0</td>
-<td>⭕ 偏多｜可觀察</td>
-<td>多</td>
-<td>多</td>
-<td>量增</td>
-<td>103.5 / 104</td>
-<td>101.71 / 101.5</td>
-<td>日30同步偏多，回檔守月線，多方仍有優勢。</td>
-</tr>
-
 
 </tbody>
-
 </table>
-
 </div>
 
 <script>
-
-const buttons = document.querySelectorAll(".btn")
-const rows = document.querySelectorAll("tbody tr")
+const buttons = document.querySelectorAll(".btn");
+const rows = document.querySelectorAll("tbody tr");
 
 buttons.forEach(btn => {
-
     btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
 
-        buttons.forEach(b => b.classList.remove("active"))
-
-        btn.classList.add("active")
-
-        const cat = btn.dataset.cat
-
+        const cat = btn.dataset.cat;
         rows.forEach(row => {
-
-            const cats = row.dataset.cats
-
-            if(cat === "全部") {
-
-                row.style.display = ""
-
+            const cats = row.dataset.cats || "";
+            if (cat === "全部") {
+                row.style.display = "";
             } else {
-
-                if(cats.includes(cat)) {
-
-                    row.style.display = ""
-
-                } else {
-
-                    row.style.display = "none"
-                }
+                row.style.display = cats.includes(cat) ? "" : "none";
             }
-        })
-    })
-})
-
+        });
+    });
+});
 </script>
-
 </body>
 </html>
